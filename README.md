@@ -1,5 +1,5 @@
 # PyWallet
-A Python Module for Signing and verifying Apple Wallet Passbooks
+A Python Module for signing and verifying Apple Wallet Passbooks
 
 
 ````python
