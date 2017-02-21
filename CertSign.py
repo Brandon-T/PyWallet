@@ -38,13 +38,13 @@ class BIO_MEM_BUF(Structure):
     @staticmethod
     def fromBIO(bio):
         BIO_ctrl = openssl.BIO_ctrl
-            BIO_ctrl.argtypes = [c_void_p, c_int, c_long, c_void_p]
-                BIO_ctrl.restype = c_long
+        BIO_ctrl.argtypes = [c_void_p, c_int, c_long, c_void_p]
+        BIO_ctrl.restype = c_long
                     
-                    BIO_C_GET_BUF_MEM_PTR = 115
-                        buffer = POINTER(BIO_MEM_BUF)()
-                            BIO_ctrl(bio.getBIO(), BIO_C_GET_BUF_MEM_PTR, 0, byref(buffer))
-                                return buffer
+        BIO_C_GET_BUF_MEM_PTR = 115
+        buffer = POINTER(BIO_MEM_BUF)()
+        BIO_ctrl(bio.getBIO(), BIO_C_GET_BUF_MEM_PTR, 0, byref(buffer))
+        return buffer
 
 class STStack(Structure):
     _fields_ = [("num", c_int),
@@ -141,7 +141,7 @@ class BIO(object):
         
         res = BIO()
         res.bio = BIO_new(BIO_s_mem())
-                return res
+        return res
 
     @staticmethod
     def fromFilePointer(fp, flags):  #BIO_NOCLOSE = 0x00, BIO_CLOSE = 0x01
@@ -175,7 +175,7 @@ class BIO(object):
             else:
                 break
 
-    return totalBuffer
+        return totalBuffer
 
     def toString(self):
         return self.toBytes().decode("utf-8")
@@ -430,16 +430,16 @@ class PKCS12(object):
             self.pkey.pkey = pkey
         
             if x509:
-            self.x509 = X509Certificate()
+                self.x509 = X509Certificate()
                 self.x509.x509 = x509
             return res
 
     def __del__(self):
         PKCS12_free = openssl.PKCS12_free
-            PKCS12_free.argtypes = [c_void_p]
-            PKCS12_free.restype = None
-            PKCS12_free(self.pkcs12)
-            self.pkcs12 = None
+        PKCS12_free.argtypes = [c_void_p]
+        PKCS12_free.restype = None
+        PKCS12_free(self.pkcs12)
+        self.pkcs12 = None
 
     def getPKCS12(self):
         return self.pkcs12
