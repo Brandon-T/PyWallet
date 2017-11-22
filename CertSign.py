@@ -26,7 +26,7 @@ import base64
 from sys import platform
 from ctypes import *
 
-openssl = cdll.LoadLibrary("libssl.so") if platform != "darwin" else cdll.LoadLibrary("/usr/local/Cellar/openssl/1.0.2l/lib/libssl.dylib")
+openssl = cdll.LoadLibrary("libssl.so") if platform != "darwin" else cdll.LoadLibrary("/usr/local/opt/openssl/lib/libssl.dylib")
 
 stdin = c_void_p.in_dll(openssl, "__stdinp")
 stdout = c_void_p.in_dll(openssl, "__stdoutp")
