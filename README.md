@@ -18,7 +18,7 @@ A Python Module for signing and verifying Apple Wallet Passbooks
 Apple official Wallet support materials @
 https://developer.apple.com/services-account/download?path=/iOS/Wallet_Support_Materials/WalletCompanionFiles.zip
 
-## Installation of required libraries
+## Install required libraries
 
 Mac:
 ```shell
