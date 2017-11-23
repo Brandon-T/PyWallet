@@ -13,7 +13,7 @@ A Python Module for signing and verifying Apple Wallet Passbooks
 * Certificate is available @ http://developer.apple.com/certificationauthority/AppleWWDRCA.cer
 * It should be exported from KeyChain into a ".pem" (In "Usage" section below this file is referenced as "AppleWWDR.pem"").
 
-##Get PassKit support materials and sample Pass data from Apple
+## Get PassKit support materials and sample Pass data from Apple
 https://developer.apple.com/services-account/download?path=/iOS/Wallet_Support_Materials/WalletCompanionFiles.zip
 
 ## Installation of required libraries
