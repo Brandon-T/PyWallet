@@ -28,8 +28,9 @@ from ctypes import *
 
 openssl = cdll.LoadLibrary("libssl.so") if platform != "darwin" else cdll.LoadLibrary("/usr/local/opt/openssl/lib/libssl.dylib")
 
-stdin = c_void_p.in_dll(openssl, "__stdinp")
-stdout = c_void_p.in_dll(openssl, "__stdoutp")
+# Comment out this code only for purposes of testing.
+# stdin = c_void_p.in_dll(openssl, "__stdinp")
+# stdout = c_void_p.in_dll(openssl, "__stdoutp")
 
 class BIO_MEM_BUF(Structure):
     _fields_ = [("length", c_size_t),
