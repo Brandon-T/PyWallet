@@ -1,24 +1,26 @@
 # PyWallet
 A Python Module for signing and verifying Apple Wallet Passbooks
 
-## Get the certificates
+## Getting the certificates
 
 1) Get a Pass Type Id
 
 * Visit the iOS Provisioning Portal -> Pass Type IDs -> New Pass Type ID
 * Select pass type id -> Configure (Follow steps and download generated pass.cer file)
-* Use Keychain tool to export a ".p12" file (In "Usage" section below this file is referenced as "Key.p12")
+* Import downloaded certificate into Keychain Access on your Mac.
+* Export the certificate from Keychain Access into a ".p12" file (In "Usage" section below this file is referenced as "Key.p12")
 
 2) Get Apple WWDR Certificate
-* Certificate is available @ http://developer.apple.com/certificationauthority/AppleWWDRCA.cer
-* It should be exported from KeyChain into a ".pem" (In "Usage" section below this file is referenced as "AppleWWDR.pem"").
+* Certificate is available at: http://developer.apple.com/certificationauthority/AppleWWDRCA.cer
+* Convert it into a ".pem" file (In "Usage" section below this file is referenced as "AppleWWDR.pem""):
+```shell
+	$ openssl x509 -inform der -in AppleWWDRCA.cer -out AppleWWDRCA.pem
+```
 
-## Get PassKit support materials and sample Pass data from Apple
+3) Get PassKit support materials and sample Pass data from Apple
+* https://developer.apple.com/services-account/download?path=/iOS/Wallet_Support_Materials/WalletCompanionFiles.zip
 
-Apple official Wallet support materials @
-https://developer.apple.com/services-account/download?path=/iOS/Wallet_Support_Materials/WalletCompanionFiles.zip
-
-## Install required libraries
+## Installing required libraries
 
 Mac:
 ```shell
@@ -31,7 +33,7 @@ Ubuntu/Linux:
     $ apt-get upgrade openssl    
 ```
 
-## Usage
+## Using PyWallet tool:
 ````python
 
 from PKPass import PKPass
@@ -47,7 +49,4 @@ if __name__ == "__main__":
 	
     CertSign.freeOpenSSL()
 ````
-
-## Note
-Works with latest version of Python
 
